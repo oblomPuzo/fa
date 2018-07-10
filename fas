@@ -1,0 +1,80 @@
+import functools
+import sys
+import os
+import tokenize
+
+__all__ = ["getline", "clearcache", "checkcache"]
+
+def getline(filename, lineno, module_globals=None):
+    lines = getlines(filename, module_globals)
+    if 1 <= lineno <= len(lines):
+        return lines[lineno-1]
+    else:
+        return ''
+def getlines(filename, module_globals=None):
+    """Get the lines for a Python source file from the cache.
+    Update the cache if it doesn't contain an entry for this file already."""
+
+    if filename in cache:
+        entry = cache[filename]
+        if len(entry) != 1:
+            return cache[filename][2]
+
+    try:
+        return updatecache(filename, module_globals)
+    except MemoryError:
+        clearcache()
+        return []
+
+
+
+
+
+
+
+
+import re
+
+
+for n in range (40):
+    s2=1
+    s = 4
+    x = getline ("C:/Users/Max/Documents/input.txt",t)[:-5]
+    y=getline("C:/Users/Max/Documents/test.txt",s)
+    result = re.search (x,y)
+    while result == None:
+            s=s+10
+            x = getline("C:/Users/Max/Documents/input.txt",t)[:-5]
+            y=getline("C:/Users/Max/Documents/test.txt",s)
+            result = re.search (x,y)  
+            if s > 100:
+                break
+    if s > 100:
+        v  =  open ("C:/Users/Max/Documents/output.txt","a")
+        v.write (0.0)
+        v.flush()
+        t=t+1
+        continue            
+    s=s+4
+    y=getline ("C:/Users/Max/Documents/test.txt",s)[-3:]
+    z = getline ("C:/Users/Max/Documents/test2.txt",s2)
+    result2 = re.search (y,z)  
+    while result2 == None:
+            s2=s2+2
+            y=getline ("C:/Users/Max/Documents/test.txt",s)[-3:]
+            z = getline ("C:/Users/Max/Documents/test2.txt",s2)
+            result2 = re.search (y,z)
+            if s2 > 100:
+                break
+    if s2>100:
+          v = open ("C:/Users/Max/Documents/output.txt","a")
+          v.write (0.0)
+          v.flush()
+          t=t+1
+          continue
+    s2=s2+1
+    z = getline ("C:/Users/Max/Documents/test2.txt",s2)[8:]
+    v = open ("C:/Users/Max/Documents/output.txt","a")
+    v.write (z)
+    v.flush()
+    t=t+1
