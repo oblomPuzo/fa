@@ -1,0 +1,16 @@
+user_id: 3
+balance:5.0000
+user_id: 12
+balance:8.2421
+user_id: 5
+balance:4.1252
+user_id: 6
+balance:9.6488
+user_id: 7
+balance:8.5375
+user_id: 15
+balance:4.0000
+user_id: 2
+balance:9.2385
+user_id: 1
+balance:23.2321
